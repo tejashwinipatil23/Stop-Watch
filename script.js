@@ -10,17 +10,17 @@ const resetBtn = document.getElementById('resetBtn');
 const lapBtn = document.getElementById('lapBtn');
 const lapNameInput = document.getElementById('lapName');
 const lapsContainer = document.getElementById('laps');
-const car = document.querySelector('.car');
+const eyeBlinker = document.getElementById('eye-blinker');
 
 startPauseBtn.addEventListener('click', () => {
     if (isRunning) {
         clearInterval(timer);
         startPauseBtn.textContent = 'Start';
-        car.style.animationPlayState = 'paused';
+        eyeBlinker.style.visibility = 'hidden';
     } else {
         timer = setInterval(updateTime, 10);
         startPauseBtn.textContent = 'Pause';
-        car.style.animationPlayState = 'running';
+        eyeBlinker.style.visibility = 'visible';
     }
     isRunning = !isRunning;
 });
@@ -32,7 +32,7 @@ resetBtn.addEventListener('click', () => {
     seconds = 0;
     milliseconds = 0;
     startPauseBtn.textContent = 'Start';
-    car.style.animationPlayState = 'paused';
+    eyeBlinker.style.visibility = 'hidden';
     updateDisplay();
     lapsContainer.innerHTML = '';
     lapNameInput.value = '';
